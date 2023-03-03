@@ -6,19 +6,22 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:05:10 by spalta            #+#    #+#             */
-/*   Updated: 2023/02/28 19:08:35 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/03 17:30:14 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void print_error(int i)
 {
 	if (i == 155)
-		ft_printf("The argument is not an integer.");
+		ft_printf("The arguement is not an integer.");
 	if (i == 1)
-		ft_printf("The argument is not an integer.2147483647");
+		ft_printf("The arguement is not an integer <max-min>");
 	if (i == 3)
 		ft_printf("sort");
+	if (i == 4)
+		ft_printf("There is same arguement in array");
 	exit(0);
 }
 
@@ -99,7 +102,6 @@ t_data *convert_int(t_list *stack)
 {
 	t_data	*stack_a;
 	t_data	*tmp;
-	t_data	*ret;
 
 	stack_a = ft_calloc(sizeof(t_data), 1);
 	while (stack)
@@ -126,8 +128,13 @@ int	is_sort(t_data	*stack_a)
 		book = tmp->nbr;
 		while (tmp1)
 		{
-			if (!(book < tmp1->nbr))
+			if (book > tmp1->nbr)
 				flag = 1;
+			if (book == tmp1->nbr)
+			{
+				flag = 0;
+				print_error(4);
+			}
 			tmp1 = tmp1->next;				
 		}
 		tmp = tmp->next;
@@ -157,8 +164,8 @@ int ct_av(int ac, char **str)
 		stack = stack->next;
 	}
 	stack_a = convert_int(t_stack);
-	stack_a = stack_a->next;
+	if (stack_a->next != NULL)
+		stack_a = stack_a->next;
 	is_sort(stack_a);
-	system ("leaks p_swap");
 	return (1);
 }
