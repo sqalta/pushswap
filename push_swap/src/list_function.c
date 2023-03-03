@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 15:28:51 by spalta            #+#    #+#             */
-/*   Updated: 2023/02/28 15:44:10 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/03 17:43:34 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,17 @@ t_data	*p_lstnew(int nbr)
 	node->nbr = nbr;
 	node->next = 0;
 	return (node);
+}
+
+int	p_lstsize(t_data *lst)
+{
+	int	i;
+
+	i = 1;
+	while (lst->next)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

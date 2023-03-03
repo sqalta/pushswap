@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:05:10 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/03 17:33:03 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/03 17:48:05 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,8 @@ int ct_av(int ac, char **str)
 	t_list	*tmp;
 	t_list	*t_stack;
 	t_data	*stack_a;
-
+	t_data	*stack_b;
+	
 	stack = malloc (sizeof(t_list));
 	t_stack = create_a(stack, str, ac);
 	tmp = stack;
@@ -126,8 +127,9 @@ int ct_av(int ac, char **str)
 		stack = stack->next;
 	}
 	stack_a = convert_int(t_stack);
-	if (stack_a->next != NULL)
+	if (stack_a->next != NULL) //bu koşulu kaldırmayı dene. En baş argüman 0 olarak gözüüküyor bu olmassa!
 		stack_a = stack_a->next;
 	is_sort(stack_a);
+	stack_b = ft_calloc(p_lstsize(stack_a), sizeof(t_data));
 	return (1);
 }

@@ -18,6 +18,8 @@ int		p_atoi(const char *str);
 t_data	*p_lstlast(t_data *lst);
 void	p_lstadd_back(t_data **lst, t_data *new);
 void	p_lstadd_front(t_data **lst, t_data *new);
+int		p_lstsize(t_data *lst);
 t_data	*p_lstnew(int nbr);
+int		p_create_stackb(t_data *lst);
 
 #endif
