@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/03 17:33:06 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/05 20:56:43 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,36 @@ int	p_atoi(const char *str)
 	return ((int)result * sign);
 }
 
+void print_list(t_data *st)
+{
+	while (st)
+	{
+		getchar();
+		ft_printf("%d\n",st->nbr);
+		st = st->next;
+	}
+}
+
 int main (int ac, char **av)
 {
+	t_stack	*stack;
+	stack = malloc(sizeof(t_stack));
+	
 	if (ac > 1)
 	{
-		ct_av (ac, av);
+		ct_av (ac, av, stack);
+		sa(stack);
+		pb(stack);
+		pb(stack);
+		pb(stack);
+		ra(stack);
+		rb(stack);
+		rra(stack);
+		rrb(stack);
+		ft_printf("%s\n", "A");
+		print_list(stack->b);
+		ft_printf("%s\n", "B");
+		print_list(stack->a);
 	}
 	return (0);
 }

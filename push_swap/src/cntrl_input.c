@@ -6,39 +6,37 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:05:10 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/03 17:48:05 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/05 19:17:21 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_a(t_list *s_a, char **st, int ac)
+t_list	*create_a(char **st, int ac)
 {
 	char **buff;
+	t_list	*ret;
 	t_list	*tmp;
-	t_list	*ss;
 	int	i;
 	int	j;
 
-	tmp = s_a;
 	j = -1;
 	i = 1;
+	ret = NULL;
 	buff = ft_split(st[i], ' ');
 	while (i < ac)
 	{
 		j = -1;
 		while (buff[++j])
 		{
-			ss = ft_lstnew(buff[j]);
-			ft_lstadd_back(&tmp, ss);
+			tmp = ft_lstnew(buff[j]);
+			ft_lstadd_back(&ret, tmp);
 		}
 		i++;
 		free(buff);
 		buff = ft_split(st[i], ' ');
 	}
-	s_a = tmp;
-	s_a = s_a->next;
-	return (s_a);
+	return (ret);
 }
 
 int	ct_integer(char *str)
@@ -62,10 +60,11 @@ int	ct_integer(char *str)
 
 t_data *convert_int(t_list *stack)
 {
-	t_data	*stack_a;
+	t_data	*stack_a = NULL;
 	t_data	*tmp;
+	t_list	*tmp1;
 
-	stack_a = ft_calloc(sizeof(t_data), 1);
+	tmp1 = stack;
 	while (stack)
 	{
 		tmp = p_lstnew(p_atoi(stack->content));
@@ -107,29 +106,23 @@ int	is_sort(t_data	*stack_a)
 	return (1);
 }
 
-int ct_av(int ac, char **str)  
+int ct_av(int ac, char **str, t_stack *p_stack)
 {
-	t_list	*stack;
-	t_list	*tmp;
 	t_list	*t_stack;
+	t_list	*tmp;
 	t_data	*stack_a;
-	t_data	*stack_b;
 	
-	stack = malloc (sizeof(t_list));
-	t_stack = create_a(stack, str, ac);
-	tmp = stack;
-	stack = stack->next;
-	free(tmp);
-	while (stack)
+	t_stack = create_a(str, ac);
+	tmp = t_stack;
+	while (tmp)
 	{
-		if (!(ct_integer(stack->content)))
+		if (!(ct_integer(tmp->content)))
 			print_error(155);
-		stack = stack->next;
+		tmp = tmp->next;
 	}
 	stack_a = convert_int(t_stack);
-	if (stack_a->next != NULL) //bu koşulu kaldırmayı dene. En baş argüman 0 olarak gözüüküyor bu olmassa!
-		stack_a = stack_a->next;
+	ft_lstclear(&t_stack, free);
 	is_sort(stack_a);
-	stack_b = ft_calloc(p_lstsize(stack_a), sizeof(t_data));
+	p_stack->a = stack_a;
 	return (1);
 }
