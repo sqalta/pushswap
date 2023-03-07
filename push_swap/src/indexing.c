@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:01:37 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/07 14:25:51 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:10:11 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,31 @@ void	cpy_stack_a(t_stack *stack)
 		tmp = tmp->next;
 	}
 	stack->a_cpy = cpy_a;
+}
+void	inx_stacka(t_stack	*stack)
+{
+	t_data	*tmp1;
+	t_data	*tmp2;
+	int		inx;
+
+	tmp1 = stack->a;
+	tmp2 = stack->a_cpy;
+	while (tmp1)
+	{
+		inx = 0;
+		while (tmp2)
+		{
+			if (tmp1->nbr == tmp2->nbr)
+			{
+				tmp1->inx = inx;
+				tmp2 = stack->a_cpy;
+				break;
+			}
+			inx++;
+			tmp2 = tmp2->next;
+		}
+		tmp1 = tmp1->next;
+	}
 }
 
 void	sort_stacka(t_stack	*stack)
@@ -51,6 +76,6 @@ void	sort_stacka(t_stack	*stack)
 			stack->a_cpy = stack->a_cpy->next;
 	}
 	stack->a_cpy = tmp;
-	print_list(stack->a_cpy);
+	inx_stacka(stack);
 	print_list(stack->a);
 }

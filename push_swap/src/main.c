@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/07 14:20:47 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/07 16:45:35 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void print_list(t_data *st)
 	while (st)
 	{
 		i++;
-		ft_printf("%d\n",st->nbr);
+		ft_printf("%d\n",st->inx);
 		if (!st->next)
 			printf ("\n");
 		st = st->next;

@@ -25,4 +25,10 @@ fclean: clean
 
 re: fclean all
 
+git:
+	git add .
+	git status
+	git commit -m "not_finished"
+	git push
+
 .PHONY: clean fclean re
