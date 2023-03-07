@@ -31,6 +31,7 @@ void	p_lstadd_front(t_data **lst, t_data *new);
 int		p_lstsize(t_data *lst);
 int		p_create_stackb(t_data *lst);
 void	sort_stacka(t_stack	*stack);
+void 	p_s(t_stack *stack);
 void	sa(t_stack	*stack);
 void	sb(t_stack	*stack);
 void	ss(t_stack	*stack);

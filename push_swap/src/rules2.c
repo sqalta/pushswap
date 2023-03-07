@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:52:23 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/06 17:53:15 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/07 21:02:40 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	pa(t_stack	*stack)
 	stack->b = stack->b->next;
 	tmp->next = NULL;
 	p_lstadd_front(&stack->a, tmp);
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack	*stack)
@@ -34,6 +35,7 @@ void	pb(t_stack	*stack)
 	stack->a = stack->a->next;
 	tmp->next = NULL;
 	p_lstadd_front(&stack->b, tmp);
+	ft_printf("pb\n");
 }
 
 void	ra(t_stack *stack)
@@ -48,6 +50,7 @@ void	ra(t_stack *stack)
 	p_lstadd_back(&(tmp1), tmp);
 	stack->a = stack->a->next;
 	free(tmp1);
+	ft_printf("ra\n");
 }
 
 void	rb(t_stack	*stack)
@@ -55,17 +58,19 @@ void	rb(t_stack	*stack)
 	t_data	*tmp;
 	t_data	*tmp1;
 
-	if (!stack->a)
+	if (!stack->b)
 		return ;
 	tmp1 = stack->b;
 	tmp = p_lstnew(stack->b->nbr);
 	p_lstadd_back(&(tmp1), tmp);
 	stack->b = stack->b->next;
 	free(tmp1);
+	ft_printf("rb\n");
 }
 
 void	rr(t_stack	*stack)
 {
 	ra(stack);
 	rb(stack);
+	ft_printf("rr\n");
 }

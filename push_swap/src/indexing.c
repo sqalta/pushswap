@@ -6,14 +6,14 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:01:37 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/07 18:10:11 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/07 19:59:18 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void	cpy_stack_a(t_stack *stack)
+void	cpy_stack_a(t_stack *stack) 
 {
 	t_data	*cpy_a = NULL;
 	t_data	*n_lst;
@@ -28,6 +28,7 @@ void	cpy_stack_a(t_stack *stack)
 	}
 	stack->a_cpy = cpy_a;
 }
+
 void	inx_stacka(t_stack	*stack)
 {
 	t_data	*tmp1;
@@ -77,5 +78,7 @@ void	sort_stacka(t_stack	*stack)
 	}
 	stack->a_cpy = tmp;
 	inx_stacka(stack);
-	print_list(stack->a);
 }
+// Adım 1 = stack_a'yı kopyalıyorum. 
+// Adım 2 = kopyalanmış stack_a'yı sıralıyorum.
+// Adım 3 = daha sonra stack_a'daki numarayı stack b'de kaçıncı sırada olduğuna bakıp indexliyorum.!
