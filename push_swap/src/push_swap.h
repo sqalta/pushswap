@@ -16,6 +16,7 @@ typedef	struct	s_data{
 typedef	struct	s_stack{
 	t_data	*a;
 	t_data	*b;
+	t_data	*a_cpy;
 }t_stack;
 
 
