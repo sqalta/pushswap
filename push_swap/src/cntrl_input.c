@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:05:10 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/05 19:17:21 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:55:07 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_data *convert_int(t_list *stack)
 	tmp1 = stack;
 	while (stack)
 	{
-		tmp = p_lstnew(p_atoi(stack->content));
+		tmp = p_lstnew(p_atoi(stack->content), -1);
 		p_lstadd_back(&stack_a, tmp);
 		stack = stack->next;
 	}

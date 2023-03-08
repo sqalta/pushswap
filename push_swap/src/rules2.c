@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:52:23 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/07 21:02:40 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:54:23 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ra(t_stack *stack)
 	if (!stack->a)
 		return ;
 	tmp1 = stack->a;
-	tmp = p_lstnew(stack->a->nbr);
+	tmp = p_lstnew(stack->a->nbr, stack->a->inx);
 	p_lstadd_back(&(tmp1), tmp);
 	stack->a = stack->a->next;
 	free(tmp1);
@@ -61,7 +61,7 @@ void	rb(t_stack	*stack)
 	if (!stack->b)
 		return ;
 	tmp1 = stack->b;
-	tmp = p_lstnew(stack->b->nbr);
+	tmp = p_lstnew(stack->b->nbr, stack->b->inx);
 	p_lstadd_back(&(tmp1), tmp);
 	stack->b = stack->b->next;
 	free(tmp1);

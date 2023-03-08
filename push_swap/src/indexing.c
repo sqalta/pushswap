@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:01:37 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 15:23:10 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:57:35 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	cpy_stack_a(t_stack *stack)
 	tmp = stack->a;
 	while (tmp)
 	{
-		n_lst = p_lstnew(tmp->nbr);
+		n_lst = p_lstnew(tmp->nbr, -1);
 		p_lstadd_back(&cpy_a, n_lst);
 		tmp = tmp->next;
 	}
@@ -55,7 +55,7 @@ void	inx_stacka(t_stack	*stack)
 	}
 }
 
-void	sort_stacka(t_stack	*stack)
+void	index_stacka(t_stack	*stack)
 {
 	t_data	*tmp;
 	t_data	*tmp1;
@@ -78,7 +78,7 @@ void	sort_stacka(t_stack	*stack)
 	}
 	stack->a_cpy = tmp;
 	inx_stacka(stack);
-	print_list(stack->a);
+	//print_list(stack->a);
 }
 // Adım 1 = stack_a'yı kopyalıyorum. 
 // Adım 2 = kopyalanmış stack_a'yı sıralıyorum.

@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 16:30:01 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:55:45 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int main (int ac, char **av)
 	if (ac > 1)
 	{
 		ct_av (ac, av, stack);
-		sort_stacka(stack);
-		//p_s(stack);
-		st_deviation(stack->a);
+		index_stacka(stack);
+		start_sort(stack);
+		//st_deviation(stack->a);
 	}
 	return (0);
 }

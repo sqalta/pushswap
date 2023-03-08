@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 16:01:56 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 16:46:53 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 17:26:30 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	st_deviation(t_data	*s) // gelen listin uzunluğuna göre hesaplama yapılma
 	int	avrg;
 	int	variance;
 
-	
+
 	len = p_lstsize(s);
 	avrg = p_addition_inx(s) / len;
 	ft_printf("av->%d\n", avrg);
