@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:34:42 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/07 21:15:38 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 14:51:10 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,5 @@ void p_s(t_stack *stack)
 		rrb(stack);
 		pa(stack);
 	}
-	//print_list(stack->a);
+	print_list(stack->a);
 }

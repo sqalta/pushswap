@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 15:28:51 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/05 17:06:22 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 16:47:30 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,19 @@ int	p_lstsize(t_data *lst)
 		i++;
 	}
 	return (i);
+}
+
+int p_addition_inx(t_data	*lst)
+{
+	int	total;
+	
+	total = 0;
+	while (lst)
+	{
+		total += lst->inx;
+		lst = lst->next;
+		if (!lst->next)
+			break;		
+	}
+	return (total);
 }

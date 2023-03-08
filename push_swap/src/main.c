@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/07 20:00:50 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/08 16:30:01 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void print_list(t_data *st)
 	int i = 0;
 	while (st)
 	{
+		getchar();
 		i++;
 		ft_printf("%d\n",st->inx);
 		if (!st->next)
@@ -72,7 +73,8 @@ int main (int ac, char **av)
 	{
 		ct_av (ac, av, stack);
 		sort_stacka(stack);
-		p_s(stack);
+		//p_s(stack);
+		st_deviation(stack->a);
 	}
 	return (0);
 }
