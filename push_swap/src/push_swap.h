@@ -11,6 +11,7 @@ typedef	struct	s_data{
 	int	nbr;
 	int	inx;
 	struct s_data *next;
+	struct s_data *back;
 }t_data;
 
 typedef	struct	s_stack{

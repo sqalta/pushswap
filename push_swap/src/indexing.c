@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:01:37 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 17:57:35 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/10 13:00:06 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	index_stacka(t_stack	*stack)
 	}
 	stack->a_cpy = tmp;
 	inx_stacka(stack);
-	//print_list(stack->a);
+	//print_list(stack);
 }
 // Adım 1 = stack_a'yı kopyalıyorum. 
 // Adım 2 = kopyalanmış stack_a'yı sıralıyorum.

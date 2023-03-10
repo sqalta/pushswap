@@ -6,11 +6,12 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 16:01:56 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 17:26:30 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:08:32 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int	st_variance(t_data	*s, int	avrg, int len)
 {
@@ -46,8 +47,6 @@ int	st_deviation(t_data	*s) // gelen listin uzunluğuna göre hesaplama yapılma
 
 	len = p_lstsize(s);
 	avrg = p_addition_inx(s) / len;
-	ft_printf("av->%d\n", avrg);
-	ft_printf("len->%d\n", len);
 	variance = st_variance(s, avrg, len);
-	ft_printf("%d", variance);
+	ft_printf("->>%d", variance);
 }

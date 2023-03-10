@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 15:28:51 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 17:52:05 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/10 14:56:36 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int p_addition_inx(t_data	*lst)
 	total = 0;
 	while (lst)
 	{
+		getchar();
+		ft_printf("->total%d\n", total);
 		total += lst->inx;
 		lst = lst->next;
 		if (!lst->next)
