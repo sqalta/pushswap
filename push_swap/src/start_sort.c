@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/10 18:43:10 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/10 18:48:02 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,6 @@ void	find_big_a(t_stack	*stack) //listede en uzun artarak giden listeyi oluştur
 		ft_printf ("%d\n", stack->a->push_flag);
 		stack->a = stack->a->next;
 	}
-	exit(0);
 }
 
 void	start_sort(t_stack	*stack)
