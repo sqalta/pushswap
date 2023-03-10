@@ -10,6 +10,7 @@
 typedef	struct	s_data{
 	int	nbr;
 	int	inx;
+	int	push_flag;
 	struct s_data *next;
 	struct s_data *back;
 }t_data;
