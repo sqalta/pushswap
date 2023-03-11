@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/10 18:34:05 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/11 15:08:49 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void print_error(int i)
 {
+	exit(0);
 	if (i == 155)
 		ft_printf("The arguement is not an integer.");
 	if (i == 1)
@@ -67,8 +68,7 @@ int main (int ac, char **av)
 {
 	t_stack	*stack;
 	stack = malloc(sizeof(t_stack));
-	
-	if (ac > 1)
+	if (ac > 2)
 	{
 		ct_av (ac, av, stack);
 		index_stacka(stack);

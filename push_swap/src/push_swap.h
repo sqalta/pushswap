@@ -11,6 +11,8 @@ typedef	struct	s_data{
 	int	nbr;
 	int	inx;
 	int	push_flag;
+	int	up;
+	int	down;
 	struct s_data *next;
 	struct s_data *back;
 }t_data;
@@ -40,6 +42,7 @@ int		p_create_stackb(t_data *lst);
 int		st_deviation(t_data	*s);
 void	index_stacka(t_stack	*stack);
 void	start_sort(t_stack	*stack);
+void	b_position(t_stack *stack, t_data	*target);
 void 	p_s(t_stack *stack);
 void	sa(t_stack	*stack);
 void	sb(t_stack	*stack);

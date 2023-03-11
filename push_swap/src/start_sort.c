@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/10 18:48:02 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/11 15:42:42 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	begin_stacka(t_stack *stack)
 	i = 0;
 	while (i < len)
 	{
-		if (stack->a->inx % 2 == 0)
-			pb(stack);
-		else
+		if (stack->a->push_flag == 1)
 			ra(stack);
+		else
+			pb(stack);
 		i++;
 	}
 }
@@ -131,7 +131,6 @@ void	find_big_a(t_stack	*stack) //listede en uzun artarak giden listeyi oluştur
 	t_data	*first_a;
 	int		i;
 	int		*len;
-	int		start_a;
 
 	len = malloc(sizeof(int) * p_lstsize(stack->a));
 	st = stack->a;
@@ -142,20 +141,27 @@ void	find_big_a(t_stack	*stack) //listede en uzun artarak giden listeyi oluştur
 		st = st->next;
 	}
 	first_a = find_start_list(stack, len); //oluşturacağım stacka için list yapıma bir integer koyup b stackine göndermeyeceklerimi işaretleyeceğim.!
-	print_list(stack->a);
 	mark_stack_a(stack, first_a);
-	while (stack->a)
+	/*while (stack->a)
 	{
 		getchar();
 		ft_printf ("%d->", stack->a->nbr);
 		ft_printf ("%d\n", stack->a->push_flag);
 		stack->a = stack->a->next;
-	}
+	}*/
 }
 
-void	start_sort(t_stack	*stack)
+void	start_sort(t_stack	*stack) //!!Leaks!!
 {
-	//begin_stacka(stack);
 	find_big_a(stack);
-	exit(0);
+	begin_stacka(stack);
+	b_position(stack, stack->b);
+	print_list(stack->b);
+	getchar();
+	while (stack->b)
+	{
+		getchar();
+		ft_printf("up->%ddown->%d", stack->b->up, stack->b->down);
+		stack->b = stack->b->next;	
+	}
 }

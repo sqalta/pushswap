@@ -1,4 +1,4 @@
-NAME = p_swap
+NAME = push_swap
 FLAGS = -Wall -Wextra -g
 LIBFT = ./Libft/libft.a
 PRINTF_SRC = ./printf/*.c
