@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:18:06 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/11 22:45:44 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/11 22:56:45 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,8 @@ void	find_a_position(t_stack *stack, t_data *b)
 					break;
 			a = a->next;
 		}
-		if (!calculate_min_step(a, b))
-			return ;
+	if (!calculate_min_step(a, b))
+		return ;
 	}
 	find_a_position(stack, b->next);
 }
