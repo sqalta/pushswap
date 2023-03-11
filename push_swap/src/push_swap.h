@@ -13,8 +13,9 @@ typedef	struct	s_data{
 	int	push_flag;
 	int	up;
 	int	down;
+	int	is_min;
+	int	is_max;
 	struct s_data *next;
-	struct s_data *back;
 }t_data;
 
 typedef	struct	s_stack{
@@ -42,7 +43,9 @@ int		p_create_stackb(t_data *lst);
 int		st_deviation(t_data	*s);
 void	index_stacka(t_stack	*stack);
 void	start_sort(t_stack	*stack);
-void	b_position(t_stack *stack, t_data	*target);
+void	position(t_data *stack, t_data	*target);
+void	a_min_max(t_stack *stack);
+void	calculation_data(t_stack	*stack);
 void 	p_s(t_stack *stack);
 void	sa(t_stack	*stack);
 void	sb(t_stack	*stack);

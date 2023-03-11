@@ -6,40 +6,72 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:18:06 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/11 15:45:21 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/11 17:23:55 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_up_down(t_stack	*stack, t_data *position)
+void	find_min_max(t_stack *stack, int min, int max)
 {
-	int	mid;
-	int len;
-	int	target;
-
-	len = p_lstsize(stack->b);
-	mid = len / 2;
-	target = len - p_lstsize(position);
-	if (target > mid)
-		return (-1);
-	else if (target < mid)
-		return (1);
-	else
-		return (0);
+	t_data	*a;
+	
+	a = stack->a;
+	while (a)
+	{
+		if (a->inx == min)
+			a->is_min = 1;
+		if (a->inx == max)
+			a->is_max = 1;
+		a = a->next;
+	}
+	a = stack->a;
 }
 
-void	b_position(t_stack *stack, t_data	*target)
+void	a_min_max(t_stack *stack) // a stack 1 kalırsa dikkatli ol!;
 {
-	t_data	*b;
-	int		i;
+	t_data	*a;
+	int		min;
+	int		max;
 
+	a = stack->a;
+	min = stack->a->inx;
+	max = stack->a->inx;
+	while (a->next)
+	{
+		if (a->next->inx < min)
+		{
+			min = a->next->inx;
+		}
+		a = a->next;
+	}
+	a = stack->a;
+	while (a->next)
+	{
+		if (a->next->inx > max)
+		{
+			max = a->next->inx;
+		}
+		a = a->next;
+	}
+	find_min_max(stack, min, max);
+}
+
+void	position(t_data *stack, t_data	*target)
+{
+	int		i;
 	if (!target)
 		return ;
-	b = stack->b;
 	i = 0;
 	target->down = p_lstsize(target);
-	target->up = p_lstsize(stack->b) - target->down;
+	target->up = p_lstsize(stack) - target->down;
 	target = target->next;
-	return (b_position(stack, target));
+	return (position(stack, target));
+}
+
+void	calculation_data(t_stack	*stack)
+{
+	position(stack->b, stack->b);
+	position(stack->a, stack->a);
+	a_min_max(stack);
 }
