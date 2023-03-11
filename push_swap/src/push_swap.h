@@ -13,8 +13,11 @@ typedef	struct	s_data{
 	int	push_flag;
 	int	up;
 	int	down;
+	int	min;
+	int max;
 	int	is_min;
 	int	is_max;
+	int	total_step;
 	struct s_data *next;
 }t_data;
 
@@ -22,6 +25,8 @@ typedef	struct	s_stack{
 	t_data	*a;
 	t_data	*b;
 	t_data	*a_cpy;
+	t_data	*max;
+	t_data	*min;
 }t_stack;
 
 typedef	struct	s_statistic{
