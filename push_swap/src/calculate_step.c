@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:18:06 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 16:52:07 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 19:19:37 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,6 @@ void	position(t_data *stack, t_data	*target)
 	target = target->next;
 	return (position(stack, target));
 }
-void	find_min_step(t_data *b)
-{
-	int	i;
-	int	min;
-
-	i = 0;
-	min = b->total_step[i++];
-	while (i < 4)
-	{
-		if (b->total_step[i] < min)
-			min = b->total_step[i];
-		i++;
-	}
-	b->min_step = min;
-}
 
 int	calculate_min_step(t_data *a, t_data *b) // u -> up / d -> down total 4 ihtimal var.
 {
@@ -114,15 +99,6 @@ int	calculate_min_step(t_data *a, t_data *b) // u -> up / d -> down total 4 ihti
 	ad_bu = a->down + b->up;
 	b->total_step[3] = ad_bu;
 	find_min_step(b);
-	getchar();
-	int i = 0;
-	while (i < 4)
-	{
-		ft_printf("%d\n", b->inx);
-		ft_printf("%d\n", b->total_step[i]);
-		i++;
-	}
-	ft_printf("->minstep%d\n", b->min_step);
 	return (1);
 }
 
@@ -160,6 +136,9 @@ void	find_a_position(t_stack *stack, t_data *b)
 		}
 		calculate_min_step(a->next, b);
 	}
+	b->target = a->next;
+	getchar();
+	printf ("--%d--", b->target->inx);
 	if (b->next)
 		find_a_position(stack, b->next);
 }
@@ -168,9 +147,6 @@ void	calculation_data(t_stack	*stack)
 {
 	position(stack->b, stack->b);
 	position(stack->a, stack->a);
-	print_list(stack->a);
-	ft_printf("\n");
-	print_list(stack->b);
 	a_min_max(stack);
 	find_a_position(stack, stack->b);
 }

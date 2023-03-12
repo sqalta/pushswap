@@ -19,6 +19,7 @@ typedef	struct	s_data{
 	int	is_max;
 	int	total_step[4];
 	int	min_step;
+	struct s_data *target;
 	struct s_data *next;
 }t_data;
 
@@ -52,6 +53,8 @@ void	start_sort(t_stack	*stack);
 void	position(t_data *stack, t_data	*target);
 void	a_min_max(t_stack *stack);
 void	calculation_data(t_stack	*stack);
+void	find_min_step(t_data *b);
+void	start_push(t_stack	*stack);
 void 	p_s(t_stack *stack);
 void	sa(t_stack	*stack);
 void	sb(t_stack	*stack);
