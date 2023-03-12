@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 19:12:55 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 21:39:15 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,12 +155,17 @@ void	start_sort(t_stack	*stack) //!!Leaks!!
 {
 	find_big_a(stack);
 	begin_stacka(stack);
-	calculation_data(stack);
-	start_push(stack);
-	calculation_data(stack);
-	start_push(stack);
-	calculation_data(stack);
-	start_push(stack);
+	getchar();
+	while (p_lstsize(stack->a) != p_lstsize(stack->a_cpy))
+	{
+		ft_printf("\n");
+		print_list(stack->a);
+		ft_printf("\n");
+		print_list(stack->b);
+		calculation_data(stack);
+		getchar();
+		start_push(stack);
+	}
 	exit(0);
 	while (stack->a)
 	{

@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:18:06 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 19:19:37 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 21:44:57 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,21 @@ int	calculate_min_step(t_data *a, t_data *b) // u -> up / d -> down total 4 ihti
 	return (1);
 }
 
-int cntrl_min_max(t_data *a, t_data *a_next, t_data *b)
+int cntrl_min_max(t_data *a, t_data *a_next, t_data *b, t_stack	*stack)
 {
-	if (b->inx > a->max || b->inx < a->min)
+	if (!a_next)
+		a_next = stack->a;
+	if (b->inx > stack->a->max || b->inx < stack->a->min)
 		return (1);
-	if ((a->is_min == 1 && a_next->is_max == 1) || (a->is_max == 1 && a_next->is_min == 1))
-		if (b->inx > a->min && b->inx < a->max)
-			return (0);
-	return (155);
+	if (a->inx > a_next->inx)
+		return (0);
+	if (a->inx < b->inx && a_next->inx > b->inx)
+	{
+		if (a_next->inx == stack->a->inx)
+			return (666);
+		return (555);
+	}
+	return (0);
 }
 
 void	find_a_position(t_stack *stack, t_data *b)
@@ -122,23 +129,31 @@ void	find_a_position(t_stack *stack, t_data *b)
 	len = p_lstsize(stack->a);
 	a = stack->a;
 	i = 0;
-	min_max = cntrl_min_max(a, a->next, b);
-	if (min_max == 1)
-		calculate_min_step(stack->min, b);
-	else
+	while (i++ != len)
 	{
-		while (i <= len)
+		min_max = cntrl_min_max(a, a->next, b, stack);
+		if (min_max == 1)
 		{
-			if (cntrl_min_max(a, a->next, b))
-				if (a->next && a->inx < b->inx && a->next->inx > b->inx)
-					break;
-			a = a->next;
+			calculate_min_step(stack->min, b);
+			b->target = stack->min;
+			break;
 		}
-		calculate_min_step(a->next, b);
+		else if(min_max == 555)
+		{
+			calculate_min_step(a->next, b);
+			b->target = a->next;
+			break;
+		}
+		else if (min_max == 666)
+		{
+			calculate_min_step(stack->a, b);
+			b->target = stack->a;
+		}
+		a = a->next;
 	}
-	b->target = a->next;
 	getchar();
-	printf ("--%d--", b->target->inx);
+	ft_printf ("b->inx%d\n", b->inx);
+	ft_printf ("b->target->inx%d\n", b->target->inx);
 	if (b->next)
 		find_a_position(stack, b->next);
 }
