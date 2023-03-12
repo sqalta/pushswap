@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 21:50:09 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 22:12:13 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,15 +155,9 @@ void	start_sort(t_stack	*stack) //!!Leaks!!
 {
 	find_big_a(stack);
 	begin_stacka(stack);
-	getchar();
 	while (p_lstsize(stack->a) != p_lstsize(stack->a_cpy))
 	{
-		ft_printf("\n");
-		print_list(stack->a);
-		ft_printf("\n");
-		print_list(stack->b);
 		calculation_data(stack);
-		getchar();
 		start_push(stack);
 	}
 	t_data *a;
@@ -177,11 +171,16 @@ void	start_sort(t_stack	*stack) //!!Leaks!!
 			break;
 		a = a->next;
 	}
-	exit(0);
-	while (stack->a)
-	{
-		getchar();
-		ft_printf("up->%ddown->%d", stack->a->up, stack->a->down);
-		stack->a = stack->a->next;
-	}
+	int len = p_lstsize(a);
+	int total_size = p_lstsize(stack->a);
+	int ttt;
+
+	ttt = total_size - len;
+
+	if (ttt < len)
+		while(ttt--)
+			ra(stack);
+	else
+		while (len--)
+			rra(stack);
 }

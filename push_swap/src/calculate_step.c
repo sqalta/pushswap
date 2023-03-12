@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:18:06 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 21:44:57 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 21:50:37 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,9 +151,6 @@ void	find_a_position(t_stack *stack, t_data *b)
 		}
 		a = a->next;
 	}
-	getchar();
-	ft_printf ("b->inx%d\n", b->inx);
-	ft_printf ("b->target->inx%d\n", b->target->inx);
 	if (b->next)
 		find_a_position(stack, b->next);
 }
