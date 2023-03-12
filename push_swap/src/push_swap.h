@@ -17,7 +17,8 @@ typedef	struct	s_data{
 	int max;
 	int	is_min;
 	int	is_max;
-	int	total_step;
+	int	total_step[4];
+	int	min_step;
 	struct s_data *next;
 }t_data;
 

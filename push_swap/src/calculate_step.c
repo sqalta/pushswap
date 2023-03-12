@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:18:06 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/11 22:56:45 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 16:52:07 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,37 +76,61 @@ void	position(t_data *stack, t_data	*target)
 	target = target->next;
 	return (position(stack, target));
 }
-
-int	calculate_min_step(t_data *a, t_data *b) // + yukarı - aşağı
+void	find_min_step(t_data *b)
 {
-	int	up_step;
-	int down_step;
-	
-	ft_printf("%d->%d\n", a->inx, b->inx);
-	if (a->down > b->down)
-		down_step = a->down;
+	int	i;
+	int	min;
+
+	i = 0;
+	min = b->total_step[i++];
+	while (i < 4)
+	{
+		if (b->total_step[i] < min)
+			min = b->total_step[i];
+		i++;
+	}
+	b->min_step = min;
+}
+
+int	calculate_min_step(t_data *a, t_data *b) // u -> up / d -> down total 4 ihtimal var.
+{
+	int	ad_bd;
+	int	au_bu;
+	int	au_bd;
+	int	ad_bu;
+
+	if (b->down > a->down)
+		ad_bd = b->down;
 	else
-		down_step = b->down;
-	if (a->up > b->up)
-		up_step = a->up;
+		ad_bd = a->down;
+	b->total_step[0] = ad_bd;
+	if (b->up > a->up)
+		au_bu = b->up;
 	else
-		up_step = b->up;
-	if (up_step < down_step)
-		b->total_step = up_step;
-	else
-		b->total_step = -1 * down_step;
-	if (!b->next)
-		return (0);
+		au_bu = a->up;
+	b->total_step[1] = au_bu;
+	au_bd = a->up + b->down;
+	b->total_step[2] = au_bd;
+	ad_bu = a->down + b->up;
+	b->total_step[3] = ad_bu;
+	find_min_step(b);
+	getchar();
+	int i = 0;
+	while (i < 4)
+	{
+		ft_printf("%d\n", b->inx);
+		ft_printf("%d\n", b->total_step[i]);
+		i++;
+	}
+	ft_printf("->minstep%d\n", b->min_step);
 	return (1);
 }
 
 int cntrl_min_max(t_data *a, t_data *a_next, t_data *b)
 {
-	if (b->inx > a->max)
+	if (b->inx > a->max || b->inx < a->min)
 		return (1);
-	if (b->inx < a->min)
-		return (1);
-	if (a->is_min == 1 && a_next->is_max == 1)
+	if ((a->is_min == 1 && a_next->is_max == 1) || (a->is_max == 1 && a_next->is_min == 1))
 		if (b->inx > a->min && b->inx < a->max)
 			return (0);
 	return (155);
@@ -134,25 +158,21 @@ void	find_a_position(t_stack *stack, t_data *b)
 					break;
 			a = a->next;
 		}
-	if (!calculate_min_step(a, b))
-		return ;
+		calculate_min_step(a->next, b);
 	}
-	find_a_position(stack, b->next);
+	if (b->next)
+		find_a_position(stack, b->next);
 }
 
 void	calculation_data(t_stack	*stack)
 {
 	position(stack->b, stack->b);
 	position(stack->a, stack->a);
+	print_list(stack->a);
+	ft_printf("\n");
+	print_list(stack->b);
 	a_min_max(stack);
 	find_a_position(stack, stack->b);
-	print_list(stack->b);
-	while (stack->b)
-	{
-		getchar();
-		ft_printf("->totalstep%d\n", stack->b->total_step);
-		stack->b = stack->b->next;
-	}
 }
 
 
