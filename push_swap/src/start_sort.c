@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 21:39:15 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 21:50:09 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,17 @@ void	start_sort(t_stack	*stack) //!!Leaks!!
 		calculation_data(stack);
 		getchar();
 		start_push(stack);
+	}
+	t_data *a;
+
+	a = stack->a;
+	int i = 0;
+	while (a)
+	{
+		i++;
+		if (a->inx == 1)
+			break;
+		a = a->next;
 	}
 	exit(0);
 	while (stack->a)
