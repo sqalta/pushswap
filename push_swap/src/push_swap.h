@@ -61,11 +61,11 @@ void	sb(t_stack	*stack);
 void	ss(t_stack	*stack);
 void	pa(t_stack	*stack);
 void	pb(t_stack	*stack);
-void	ra(t_stack *stack);
-void	rb(t_stack	*stack);
+void	ra(t_stack *stack, int i);
+void	rb(t_stack	*stack, int i);
 void	rr(t_stack	*stack);
-void	rra(t_stack	*stack);
-void	rrb(t_stack	*stack);
+void	rra(t_stack	*stack, int i);
+void	rrb(t_stack	*stack, int i);
 void	rrr(t_stack	*stack);
 
 #endif

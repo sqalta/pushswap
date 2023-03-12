@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:52:23 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 17:54:23 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 22:46:35 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	pb(t_stack	*stack)
 	ft_printf("pb\n");
 }
 
-void	ra(t_stack *stack)
+void	ra(t_stack *stack, int i)
 {
 	t_data	*tmp;
 	t_data	*tmp1;
@@ -50,10 +50,11 @@ void	ra(t_stack *stack)
 	p_lstadd_back(&(tmp1), tmp);
 	stack->a = stack->a->next;
 	free(tmp1);
-	ft_printf("ra\n");
+	if (i)
+		ft_printf("ra\n");
 }
 
-void	rb(t_stack	*stack)
+void	rb(t_stack	*stack, int i)
 {
 	t_data	*tmp;
 	t_data	*tmp1;
@@ -65,12 +66,13 @@ void	rb(t_stack	*stack)
 	p_lstadd_back(&(tmp1), tmp);
 	stack->b = stack->b->next;
 	free(tmp1);
-	ft_printf("rb\n");
+	if (i)
+		ft_printf("rb\n");
 }
 
 void	rr(t_stack	*stack)
 {
-	ra(stack);
-	rb(stack);
+	ra(stack, 0);
+	rb(stack, 0);
 	ft_printf("rr\n");
 }

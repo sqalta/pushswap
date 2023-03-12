@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 16:52:37 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 21:52:53 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/12 22:48:39 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	push_a(t_stack *stack, t_data *b)
 				rrr(stack);
 		if (b->down == 0 || b->down == -1)
 			while(tmp--)
-				rra(stack);
+				rra(stack, 1);
 		else
 			while (tmp--)
-				rrb(stack);
+				rrb(stack, 1);
 		pa(stack);
 	}
 	if (i == 1)
@@ -69,26 +69,26 @@ void	push_a(t_stack *stack, t_data *b)
 				rr(stack);
 		if (b->up == 0 || b->up == -1)
 			while(tmp--)
-				ra(stack);
+				ra(stack, 1);
 		else
 			while (tmp--)
-				rb(stack);
+				rb(stack, 1);
 		pa(stack);
 	}
 	if (i == 2)
 	{
 		while (b->down--)
-			rrb(stack);
+			rrb(stack, 1);
 		while (b->target->up--)
-			ra(stack);
+			ra(stack, 1);
 		pa(stack);
 	}
 	if (i == 3)
 	{
 		while (b->up--)
-			rb(stack);
+			rb(stack, 1);
 		while (b->target->down--)
-			rra(stack);
+			rra(stack, 1);
 		pa(stack);
 	}
 }
