@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/13 06:30:35 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 07:00:47 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,12 @@ int	main(int ac, char **av)
 			start_big_sort(stack);
 		else if (p_lstsize(stack->a) == 2)
 			sa(stack);
-		else
+		else if (p_lstsize(stack->a) == 3)
 			start_small_sort(stack);
+		else if (p_lstsize(stack->a) == 1)
+			print_error(155);
 	}
+	else
+		print_error(155);
 	return (0);
 }

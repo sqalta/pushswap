@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_sort.c                                       :+:      :+:    :+:   */
+/*   start_big_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/13 05:45:25 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 07:00:14 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	find_big_a(t_stack	*stack)
 	}
 	first_a = find_start_list(stack, len);
 	mark_stack_a(stack, first_a);
+	free(len);
 }
 
 void	create_sort_stacka(t_stack	*stack)
