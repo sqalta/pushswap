@@ -6,103 +6,21 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 22:49:07 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 05:22:36 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	begin_stacka(t_stack *stack)
-{
-	int	len;
-	int	i;
-
-	len = p_lstsize(stack->a);
-	i = 0;
-	while (i < len)
-	{
-		if (stack->a->push_flag == 1)
-			ra(stack, 1);
-		else
-			pb(stack);
-		i++;
-	}
-}
-
-int	check_sort_len(t_stack	*m_stack, t_data *find)
-{
-	t_data	*f_next;
-	int		len;
-	int		tmp_find;
-	
-	tmp_find = find->inx;
-	if (!find->next)
-		return (0); // başa getirebilirsin!
-	else
-		f_next = find->next;
-	len = 0;
-	while (f_next)
-	{
-		if (tmp_find < f_next->inx)
-		{
-			len++;
-			tmp_find = f_next->inx;
-		}
-		f_next = f_next->next;
-	}
-	f_next = m_stack->a;
-	while (f_next->inx != find->inx)
-	{
-		if (tmp_find < f_next->inx)
-		{
-			len++;
-			tmp_find = f_next->inx;
-		}
-		f_next = f_next->next;
-	}
-	return (len);
-}
-
-t_data	*find_start_list(t_stack	*stack, int	*len) //listenin nerede olduğunu bulma.
-{
-	t_data	*a;
-	int		i;
-	int		big;
-
-	a = stack->a;
-	i = 0;
-	big = 0;
-	while (i < p_lstsize(stack->a))
-	{
-		if (len[i] > big)
-			big = len[i];
-		i++;
-	}
-	i = 0;
-	while (i < p_lstsize(stack->a))
-	{
-		if (len[i] == big)
-			break;
-		i++;
-	}
-	big = 0;
-	while (i > 0)
-	{
-		i--;
-		a = a->next;
-	}
-	return (a);
-}
-
+/*Oluşturacağım stacka için list yapıma bir integer koyup 
+b stackine göndermeyeceklerimi işaretleyeceğim.!*/
 void	mark_stack_a(t_stack *stack, t_data *first_a)
 {
 	t_data	*f_next;
-	int		len;
 	int		tmp_find;
-	
+
 	tmp_find = first_a->inx;
 	f_next = first_a->next;
-	len = 0;
 	first_a->push_flag = 1;
 	while (f_next)
 	{
@@ -125,7 +43,9 @@ void	mark_stack_a(t_stack *stack, t_data *first_a)
 	}
 }
 
-void	find_big_a(t_stack	*stack) //listede en uzun artarak giden listeyi oluşturuyorum. 2 boyutlu arrayda her bir sayının artarak ne kadar gidebildiğine bakıyorum.
+/*listede en uzun artarak giden listeyi oluşturuyorum. 
+2 boyutlu arrayda her bir sayının artarak ne kadar gidebildiğine bakıyorum.*/
+void	find_big_a(t_stack	*stack)
 {
 	t_data	*st;
 	t_data	*first_a;
@@ -140,18 +60,39 @@ void	find_big_a(t_stack	*stack) //listede en uzun artarak giden listeyi oluştur
 		len[i++] = check_sort_len(stack, st);
 		st = st->next;
 	}
-	first_a = find_start_list(stack, len); //oluşturacağım stacka için list yapıma bir integer koyup b stackine göndermeyeceklerimi işaretleyeceğim.!
+	first_a = find_start_list(stack, len);
 	mark_stack_a(stack, first_a);
-	/*while (stack->a)
-	{
-		getchar();
-		ft_printf ("%d->", stack->a->nbr);
-		ft_printf ("%d\n", stack->a->push_flag);
-		stack->a = stack->a->next;
-	}*/
 }
 
-void	start_sort(t_stack	*stack) //!!Leaks!!
+void	create_sort_stacka(t_stack	*stack)
+{
+	t_data	*a;
+	int		down;
+	int		up;
+	int		i;
+	int		total_size;
+
+	a = stack->a;
+	i = 0;
+	while (a)
+	{
+		i++;
+		if (a->inx == 1)
+			break ;
+		a = a->next;
+	}
+	total_size = p_lstsize(stack->a);
+	down = p_lstsize(a);
+	up = total_size - down;
+	if (up < down)
+		while (up--)
+			ra(stack, 1);
+	else
+		while (down--)
+			rra(stack, 1);
+}
+
+void	start_sort(t_stack	*stack)
 {
 	find_big_a(stack);
 	begin_stacka(stack);
@@ -160,27 +101,5 @@ void	start_sort(t_stack	*stack) //!!Leaks!!
 		calculation_data(stack);
 		start_push(stack);
 	}
-	t_data *a;
-
-	a = stack->a;
-	int i = 0;
-	while (a)
-	{
-		i++;
-		if (a->inx == 1)
-			break;
-		a = a->next;
-	}
-	int len = p_lstsize(a);
-	int total_size = p_lstsize(stack->a);
-	int ttt;
-
-	ttt = total_size - len;
-
-	if (ttt < len)
-		while(ttt--)
-			ra(stack, 1);
-	else
-		while (len--)
-			rra(stack, 1);
+	create_sort_stacka(stack);
 }

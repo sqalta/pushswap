@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 16:52:37 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/13 03:03:01 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 05:04:06 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	push_a(t_stack *stack, t_data *b)
 	pa(stack);
 }
 
-void	min_step_inx_b(t_stack *stack)
+void	start_push(t_stack *stack)
 {
 	t_data	*tmp;
 	int		min_step;
@@ -116,9 +116,4 @@ void	min_step_inx_b(t_stack *stack)
 		tmp = tmp->next;
 	}
 	push_a(stack, tmp);
-}
-
-void	start_push(t_stack	*stack)
-{
-	min_step_inx_b(stack);
 }
