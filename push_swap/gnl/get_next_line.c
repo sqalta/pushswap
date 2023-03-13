@@ -6,11 +6,12 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:56:30 by spalta            #+#    #+#             */
-/*   Updated: 2023/02/09 18:26:11 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 23:31:52 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 char	*ft_read(int fd, char *str)
 {

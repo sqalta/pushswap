@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules3_checker.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 02:45:17 by spalta           ###   ########.fr       */
+/*   Created: 2023/03/13 05:20:15 by spalta            #+#    #+#             */
+/*   Updated: 2023/03/14 02:46:24 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
+
+void	rrr(t_stack	*stack)
+{
+	rra(stack);
+	rrb(stack);
+}
 
 void	print_error(int i)
 {
 	if (i != 3)
-	{
 		write (1, "Error\n", 6);
-		exit (1);
-	}
-	exit(0);
+	exit(1);
 }
 
 int	p_atoi(const char *str)
@@ -45,42 +48,4 @@ int	p_atoi(const char *str)
 	if (!(result < 2147483647 && result > -2147483648))
 		print_error(1);
 	return ((int)result * sign);
-}
-
-void	print_list(t_data *st)
-{
-	int	i;
-
-	i = 0;
-	while (st)
-	{
-		i++;
-		ft_printf("%d\n", st->nbr);
-		if (!st->next)
-			break ;
-		st = st->next;
-	}
-}
-
-int	main(int ac, char **av)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (ac >= 2)
-	{
-		if (ac == 2 || ft_strlen(av[1]) == 0)
-			return (0);
-		ct_av (ac, av, stack);
-		index_stacka(stack);
-		if (p_lstsize(stack->a) > 3)
-			start_big_sort(stack);
-		else if (p_lstsize(stack->a) == 2)
-			sa(stack);
-		else if (p_lstsize(stack->a) == 3)
-			start_small_sort(stack);
-		else if (p_lstsize(stack->a) == 1)
-			print_error(155);
-	}
-	return (0);
 }

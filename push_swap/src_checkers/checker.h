@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 05:15:12 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 00:31:49 by spalta           ###   ########.fr       */
+/*   Created: 2023/03/13 19:46:20 by spalta            #+#    #+#             */
+/*   Updated: 2023/03/14 02:42:44 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
+# include <fcntl.h>
 # include <stdio.h>
-# include <stdlib.h>
+# include <unistd.h>
 # include "../Libft/libft.h"
 # include "../printf/ft_printf.h"
 # include "../gnl/get_next_line.h"
@@ -43,6 +44,7 @@ typedef struct s_stack{
 	t_data	*min;
 }t_stack;
 
+int		ft_is_sort(t_data	*stack_a);
 void	print_list(t_data *st);
 void	print_error(int i);
 int		ct_av(int ac, char **str, t_stack *game_stack);
@@ -53,30 +55,18 @@ void	p_lstadd_back(t_data **lst, t_data *new);
 void	p_lstadd_front(t_data **lst, t_data *new);
 int		p_lstsize(t_data *lst);
 int		p_addition_inx(t_data	*lst);
-int		p_create_stackb(t_data *lst);
-int		st_deviation(t_data	*s);
 void	index_stacka(t_stack	*stack);
-void	start_big_sort(t_stack	*stack);
-void	position(t_data *stack, t_data	*target);
-void	a_min_max(t_stack *stack);
-void	calculation_data(t_stack	*stack);
-void	find_min_step(t_data *b);
-void	start_push(t_stack	*stack);
-void	begin_stacka(t_stack *stack);
-t_data	*find_start_list(t_stack	*stack, int	*len);
-int		check_sort_len(t_stack	*m_stack, t_data *find);
-void	start_small_sort(t_stack *stack);
 void	p_s(t_stack *stack);
 void	sa(t_stack	*stack);
 void	sb(t_stack	*stack);
 void	ss(t_stack	*stack);
 void	pa(t_stack	*stack);
 void	pb(t_stack	*stack);
-void	ra(t_stack *stack, int i);
-void	rb(t_stack	*stack, int i);
+void	ra(t_stack *stack);
+void	rb(t_stack	*stack);
 void	rr(t_stack	*stack);
-void	rra(t_stack	*stack, int i);
-void	rrb(t_stack	*stack, int i);
+void	rra(t_stack	*stack);
+void	rrb(t_stack	*stack);
 void	rrr(t_stack	*stack);
 
 #endif
