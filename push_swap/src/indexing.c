@@ -6,19 +6,19 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:01:37 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/10 13:00:06 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 02:39:30 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	cpy_stack_a(t_stack *stack) 
+void	cpy_stack_a(t_stack *stack)
 {
-	t_data	*cpy_a = NULL;
+	t_data	*cpy_a;
 	t_data	*n_lst;
 	t_data	*tmp;
 
+	cpy_a = NULL;
 	tmp = stack->a;
 	while (tmp)
 	{
@@ -46,7 +46,7 @@ void	inx_stacka(t_stack	*stack)
 			{
 				tmp1->inx = inx;
 				tmp2 = stack->a_cpy;
-				break;
+				break ;
 			}
 			inx++;
 			tmp2 = tmp2->next;
@@ -59,8 +59,8 @@ void	index_stacka(t_stack	*stack)
 {
 	t_data	*tmp;
 	t_data	*tmp1;
-	int 	swap;
-	
+	int		swap;
+
 	cpy_stack_a(stack);
 	tmp = stack->a_cpy;
 	tmp1 = stack->a_cpy;
@@ -78,8 +78,8 @@ void	index_stacka(t_stack	*stack)
 	}
 	stack->a_cpy = tmp;
 	inx_stacka(stack);
-	//print_list(stack);
 }
-// Adım 1 = stack_a'yı kopyalıyorum. 
-// Adım 2 = kopyalanmış stack_a'yı sıralıyorum.
-// Adım 3 = daha sonra stack_a'daki numarayı stack b'de kaçıncı sırada olduğuna bakıp indexliyorum.!
+/*  Adım 1 = stack_a'yı kopyalıyorum. 
+ 	Adım 2 = kopyalanmış stack_a'yı sıralıyorum.
+ 	Adım 3 = daha sonra stack_a'daki numarayı 
+	kopyalanmış stack a'da kaçıncı sırada olduğuna bakıp indexliyorum.!*/

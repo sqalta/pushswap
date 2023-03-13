@@ -6,23 +6,15 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/12 22:49:36 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 02:43:16 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_error(int i)
+void	print_error(int i)
 {
-	exit(0);
-	if (i == 155)
-		ft_printf("The arguement is not an integer.");
-	if (i == 1)
-		ft_printf("The arguement is not an integer <max-min>");
-	if (i == 3)
-		ft_printf("sort");
-	if (i == 4)
-		ft_printf("There is same arguement in array");
+	write (2, "Error\n", 6);
 	exit(0);
 }
 
@@ -51,28 +43,32 @@ int	p_atoi(const char *str)
 	return ((int)result * sign);
 }
 
-void print_list(t_data *st)
+void	print_list(t_data *st)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (st)
 	{
 		i++;
 		ft_printf("%d\n",st->nbr);
 		if (!st->next)
-			break;
+			break ;
 		st = st->next;
 	}
 }
 
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack	*stack;
+
 	stack = malloc(sizeof(t_stack));
 	if (ac > 2)
 	{
 		ct_av (ac, av, stack);
 		index_stacka(stack);
 		start_sort(stack);
+		print_list(stack->a);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:05:10 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/08 17:55:07 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 02:35:49 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_list	*create_a(char **st, int ac)
 {
-	char **buff;
+	char	**buff;
 	t_list	*ret;
 	t_list	*tmp;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	j = -1;
 	i = 1;
@@ -44,26 +44,27 @@ int	ct_integer(char *str)
 	int	i;
 
 	i = 0;
-	if (!(str[i] == '-' || str[i] == '+' ||
-			(str[i] >= '0' && str[i] <= '9')))
-				return (0);
+	if (!(str[i] == '-' || str[i] == '+'
+			|| (str[i] >= '0' && str[i] <= '9')))
+		return (0);
 	if ((str[i] == '-' || str[i] == '+') && !(str[++i]))
 		return (0);
 	i--;
 	while (str[++i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (0); // error message!
+			return (0);
 	}
 	return (1);
 }
 
-t_data *convert_int(t_list *stack)
+t_data	*convert_int(t_list *stack)
 {
-	t_data	*stack_a = NULL;
+	t_data	*stack_a;
 	t_data	*tmp;
 	t_list	*tmp1;
 
+	stack_a = NULL;
 	tmp1 = stack;
 	while (stack)
 	{
@@ -92,11 +93,8 @@ int	is_sort(t_data	*stack_a)
 			if (book > tmp1->nbr)
 				flag = 1;
 			if (book == tmp1->nbr)
-			{
-				flag = 0;
 				print_error(4);
-			}
-			tmp1 = tmp1->next;				
+			tmp1 = tmp1->next;
 		}
 		tmp = tmp->next;
 		tmp1 = tmp->next;
@@ -106,12 +104,12 @@ int	is_sort(t_data	*stack_a)
 	return (1);
 }
 
-int ct_av(int ac, char **str, t_stack *p_stack)
+int	ct_av(int ac, char **str, t_stack *p_stack)
 {
 	t_list	*t_stack;
 	t_list	*tmp;
 	t_data	*stack_a;
-	
+
 	t_stack = create_a(str, ac);
 	tmp = t_stack;
 	while (tmp)
