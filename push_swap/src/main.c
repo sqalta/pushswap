@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/13 05:19:03 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 06:30:35 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	print_error(int i)
 {
-	i = 0;
-	write (2, "Error\n", 6);
-	exit(0);
+	if (!(i == 3))
+		write (2, "Error\n", 6);
+	exit(1);
 }
 
 int	p_atoi(const char *str)
@@ -52,6 +52,7 @@ void	print_list(t_data *st)
 	while (st)
 	{
 		i++;
+		ft_printf("%d\n", st->nbr);
 		if (!st->next)
 			break ;
 		st = st->next;
@@ -67,7 +68,12 @@ int	main(int ac, char **av)
 	{
 		ct_av (ac, av, stack);
 		index_stacka(stack);
-		start_sort(stack);
+		if (p_lstsize(stack->a) > 3)
+			start_big_sort(stack);
+		else if (p_lstsize(stack->a) == 2)
+			sa(stack);
+		else
+			start_small_sort(stack);
 	}
 	return (0);
 }

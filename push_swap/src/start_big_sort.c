@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:32:36 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/13 05:22:36 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 05:45:25 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	create_sort_stacka(t_stack	*stack)
 			rra(stack, 1);
 }
 
-void	start_sort(t_stack	*stack)
+void	start_big_sort(t_stack	*stack)
 {
 	find_big_a(stack);
 	begin_stacka(stack);

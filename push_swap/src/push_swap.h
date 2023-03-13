@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 05:15:12 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/13 05:15:30 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/13 06:17:23 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		p_addition_inx(t_data	*lst);
 int		p_create_stackb(t_data *lst);
 int		st_deviation(t_data	*s);
 void	index_stacka(t_stack	*stack);
-void	start_sort(t_stack	*stack);
+void	start_big_sort(t_stack	*stack);
 void	position(t_data *stack, t_data	*target);
 void	a_min_max(t_stack *stack);
 void	calculation_data(t_stack	*stack);
@@ -65,6 +65,7 @@ void	start_push(t_stack	*stack);
 void	begin_stacka(t_stack *stack);
 t_data	*find_start_list(t_stack	*stack, int	*len);
 int		check_sort_len(t_stack	*m_stack, t_data *find);
+void	start_small_sort(t_stack *stack);
 void	p_s(t_stack *stack);
 void	sa(t_stack	*stack);
 void	sb(t_stack	*stack);
