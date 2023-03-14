@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 05:20:15 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 02:46:24 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 03:02:22 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ void	rrr(t_stack	*stack)
 void	print_error(int i)
 {
 	if (i != 3)
+	{
 		write (1, "Error\n", 6);
-	exit(1);
+		exit (1);	
+	}
+	exit(0);
 }
 
 int	p_atoi(const char *str)

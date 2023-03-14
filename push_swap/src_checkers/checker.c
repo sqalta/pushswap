@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:45:51 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 02:49:13 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 03:09:41 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 	stack = malloc(sizeof(t_stack));
 	if (ac >= 2)
 	{
-		if (ac == 2 || ft_strlen(av[1]) == 0)
+		if (ac == 2 && ft_strlen(av[1]) == 0)
 			return (0);
 		ct_av (ac, av, stack);
 		index_stacka(stack);
