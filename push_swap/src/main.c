@@ -6,11 +6,12 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 03:09:13 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 03:42:35 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	print_error(int i)
 {
@@ -42,9 +43,10 @@ int	p_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 		result = (result * 10) + str[i++] - 48;
-	if (!(result < 2147483647 && result > -2147483648))
+	result *= sign;
+	if (!(result <= 2147483647 && result >= -2147483648))
 		print_error(1);
-	return ((int)result * sign);
+	return ((int)result);
 }
 
 void	print_list(t_data *st)

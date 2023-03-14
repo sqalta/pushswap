@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:46:20 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 02:42:44 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 03:10:18 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CHECKER_H
 
 # include <fcntl.h>
-# include <stdio.h>
 # include <unistd.h>
 # include "../Libft/libft.h"
 # include "../printf/ft_printf.h"

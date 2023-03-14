@@ -1,6 +1,6 @@
 NAME = push_swap
 NAME_CHECK = checker
-FLAGS = -Wall -Wextra -g
+FLAGS = -Wall -Wextra -Werror -g
 LIBFT = ./Libft/libft.a
 PRINTF_SRC = ./printf/*.c
 GNL_SRC = ./gnl/*.c
@@ -29,6 +29,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(NAME_CHECK)
 	make fclean -C ./libft
 
 re: fclean all

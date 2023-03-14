@@ -6,14 +6,13 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 05:15:12 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 00:31:49 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 03:10:25 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include "../Libft/libft.h"
 # include "../printf/ft_printf.h"

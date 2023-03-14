@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 05:20:15 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 03:02:22 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 03:39:53 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_error(int i)
 	if (i != 3)
 	{
 		write (1, "Error\n", 6);
-		exit (1);	
+		exit (1);
 	}
 	exit(0);
 }
@@ -48,7 +48,8 @@ int	p_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 		result = (result * 10) + str[i++] - 48;
-	if (!(result < 2147483647 && result > -2147483648))
+	result *= sign;
+	if (!(result <= 2147483647 && result >= -2147483648))
 		print_error(1);
-	return ((int)result * sign);
+	return ((int)result);
 }
