@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cntrl_input_checker.c                              :+:      :+:    :+:   */
+/*   cntrl_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:05:10 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 02:44:53 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:31:23 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
+#include <stdio.h>
 
 t_list	*create_a(char **st, int ac)
 {
@@ -75,15 +76,15 @@ t_data	*convert_int(t_list *stack)
 	return (stack_a);
 }
 
-int	ft_is_sort(t_data	*stack_a)
+void	is_sort(t_data	*stack_a, int flag)
 {
 	int		book;
 	t_data	*tmp;
 	t_data	*tmp1;
-	int		flag;
 
-	flag = 0;
 	tmp = stack_a;
+	if (!tmp)
+		exit (1);
 	tmp1 = stack_a->next;
 	while (tmp->next)
 	{
@@ -101,7 +102,6 @@ int	ft_is_sort(t_data	*stack_a)
 	}
 	if (!flag)
 		print_error(3);
-	return (1);
 }
 
 int	ct_av(int ac, char **str, t_stack *p_stack)
@@ -120,7 +120,7 @@ int	ct_av(int ac, char **str, t_stack *p_stack)
 	}
 	stack_a = convert_int(t_stack);
 	ft_lstclear(&t_stack, free);
-	ft_is_sort(stack_a);
+	is_sort(stack_a, 0);
 	p_stack->a = stack_a;
 	return (1);
 }

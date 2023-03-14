@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:46:20 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 03:10:18 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:45:48 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_stack{
 	t_data	*min;
 }t_stack;
 
-int		ft_is_sort(t_data	*stack_a);
+int		ft_is_sort(t_data	*stack_a, int flag);
 void	print_list(t_data *st);
 void	print_error(int i);
 int		ct_av(int ac, char **str, t_stack *game_stack);

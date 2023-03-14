@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 05:20:15 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 04:30:43 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 19:02:38 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	rrr(t_stack	*stack)
 
 void	print_error(int i)
 {
-	if (i != 3)
+	if (i == 3)
+		get_next_line(0);
+	else if (i != 3)
 	{
 		write (1, "Error\n", 6);
 		exit (1);
