@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:45:51 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 03:09:41 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 04:30:46 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 int	find_rules(t_stack *stack, char *rul)
 {
-	if (!ft_strncmp(rul, "sa", 2))
+	if (!ft_strncmp(rul, "sa\n", 3))
 		sa(stack);
-	else if (!ft_strncmp(rul, "sb", 2))
+	else if (!ft_strncmp(rul, "sb\n", 3))
 		sb(stack);
-	else if (!ft_strncmp(rul, "ss", 2))
+	else if (!ft_strncmp(rul, "ss\n", 3))
 		ss(stack);
-	else if (!ft_strncmp(rul, "rra", 3))
+	else if (!ft_strncmp(rul, "rra\n", 4))
 		rra(stack);
-	else if (!ft_strncmp(rul, "rrb", 3))
+	else if (!ft_strncmp(rul, "rrb\n", 4))
 		rrb(stack);
-	else if (!ft_strncmp(rul, "rrr", 3))
+	else if (!ft_strncmp(rul, "rrr\n", 4))
 		rrr(stack);
-	else if (!ft_strncmp(rul, "pa", 2))
+	else if (!ft_strncmp(rul, "pa\n", 3))
 		pa(stack);
-	else if (!ft_strncmp(rul, "pb", 2))
+	else if (!ft_strncmp(rul, "pb\n", 3))
 		pb(stack);
-	else if (!ft_strncmp(rul, "ra", 2))
+	else if (!ft_strncmp(rul, "ra\n", 3))
 		ra(stack);
-	else if (!ft_strncmp(rul, "rb", 2))
+	else if (!ft_strncmp(rul, "rb\n", 3))
 		rb(stack);
-	else if (!ft_strncmp(rul, "rr", 2))
+	else if (!ft_strncmp(rul, "rr\n", 3))
 		rr(stack);
 	else
 		return (0);
