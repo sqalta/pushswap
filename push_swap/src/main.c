@@ -6,7 +6,7 @@
 /*   By: spalta <spalta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:57 by spalta            #+#    #+#             */
-/*   Updated: 2023/03/14 04:32:00 by spalta           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:01:27 by spalta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,12 @@ int	main(int ac, char **av)
 		ct_av (ac, av, stack);
 		index_stacka(stack);
 		if (p_lstsize(stack->a) > 3)
-			start_big_sort(stack);
+		{
+			if (p_lstsize(stack->a) == 5)
+				start_small_sort2(stack);
+			else
+				start_big_sort(stack);
+		}
 		else if (p_lstsize(stack->a) == 2)
 			sa(stack);
 		else if (p_lstsize(stack->a) == 3)
